@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {User} from '../_model/user';
 
 @Component({
   selector: 'app-users',
@@ -9,6 +8,7 @@ import {User} from '../_model/user';
 })
 export class UsersComponent implements OnInit {
 
+  users: any;
 
   constructor(private route: ActivatedRoute) {
   }
@@ -16,8 +16,7 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.route.data
       .subscribe((data) => {
-        let users = data.users.body;
-        console.log(users);
+        this.users = data.users.body;
       });
   }
 
