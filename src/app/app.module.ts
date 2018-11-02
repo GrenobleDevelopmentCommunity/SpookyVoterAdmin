@@ -3,16 +3,31 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {MaterialModule} from './material-module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { UsersComponent } from './users/users.component';
+import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
+import {UserResolverService} from './_services/resolvers/users.resolver';
+import {HttpBackendInter } from './http-backend-interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpModule,
+    HttpClientModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [
+    HttpBackendInter,
+    UserResolverService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
