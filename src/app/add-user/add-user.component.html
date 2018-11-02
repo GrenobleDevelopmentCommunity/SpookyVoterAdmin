@@ -1,32 +1,36 @@
 <div fxLayout="column" fxLayoutAlign="center center">
-  <div>
-    <mat-form-field appearance="outline" class="form-field">
-      <mat-label>Enter Nickname</mat-label>
-      <input matInput [(ngModel)]="user.nickname" placeholder="Nickname">
-      <mat-hint>So users can easy recognize</mat-hint>
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field appearance="outline" class="form-field">
-      <mat-select placeholder="Pipi out/in side" [(ngModel)]="user.category">
-        <mat-option value="adam">Adam</mat-option>
-        <mat-option value="Eve">Eve</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-card class="user-card">
-      <mat-card-header>
-      </mat-card-header>
-      <img mat-card-image [src]="fileDataUri">
-      <mat-card-actions>
-        <input type="file" (change)="previewFile()" #fileInput>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-  <div style="padding-top: 16px;">
+  <div *ngIf="!userCreated">
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Enter Nickname</mat-label>
+        <input matInput [(ngModel)]="user.nickname" placeholder="Nickname">
+        <mat-hint>So users can easy recognize</mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-select placeholder="Pipi out/in side" [(ngModel)]="user.category">
+          <mat-option value="adam">Adam</mat-option>
+          <mat-option value="Eve">Eve</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-card class="user-card">
+        <mat-card-header>
+        </mat-card-header>
+        <img mat-card-image [src]="fileDataUri">
+        <mat-card-actions>
+          <input type="file" (change)="previewFile()" #fileInput>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div style="padding-top: 16px;">
       <button mat-stroked-button class="form-field"
               [disabled]="fileDataUri.length === 0"
-              (click)="uploadFile()">Create</button>
+              (click)="uploadFile()">Create
+      </button>
+    </div>
   </div>
+  <div *ngIf="userCreated">Congratulations user created. Check please in users tab;</div>
 </div>

@@ -1,13 +1,11 @@
-<p>
-  users works!
-</p>
 <div *ngFor="let user of users">
   <mat-card class="user-card">
     <mat-card-header>
       <mat-card-title><b>Nickname:</b> {{user.nickname}}</mat-card-title>
       <mat-card-subtitle><b>Category:</b> {{user.category}}</mat-card-subtitle>
     </mat-card-header>
+
     <img *ngIf="!user.photo_link" mat-card-image src="http://s3.crackedcdn.com/blogimages/2009/03/cage5.jpg" alt="Photo of a Shiba Inu">
-    <img *ngIf="user.photo_link" mat-card-image src="user.photo_link" alt="Photo of a Shiba Inu">
+    <img *ngIf="user.photo_link" mat-card-image  [src]="user.photo_link" alt="Photo of a Shiba Inu">
   </mat-card>
 </div>

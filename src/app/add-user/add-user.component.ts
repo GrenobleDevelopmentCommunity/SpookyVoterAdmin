@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {User} from '../_model/user';
+import {UserService} from '../_services/user.service';
 
 @Component({
   selector: 'app-add-user',
@@ -23,6 +24,14 @@ export class AddUserComponent{
   fileDataUri = '';
   errorMsg = '';
 
+  userCreated = false;
+
+  userService: UserService;
+
+  constructor(userService: UserService) {
+    this.userService = userService;
+  }
+
   previewFile() {
     const file = this.fileInput.nativeElement.files[0];
     if (file && this.validateFile(file)) {
@@ -38,13 +47,16 @@ export class AddUserComponent{
   }
 
   uploadFile() {
-    console.log(this.user);
-
-    // get only the base64 file
     if (this.fileDataUri.length > 0) {
       const base64File = this.fileDataUri.split(',')[1];
-      // TODO: send to server
-      console.log(base64File);
+      this.userService.uploadPhoto(this.user.nickname, base64File).subscribe((res) => {
+        console.log('UploadPhotoRes', res);
+        this.userService.createUser(this.user).subscribe( (usRes) => {
+          console.log('CreateUserRes', usRes);
+          this.userCreated = true;
+        });
+      });
+
     }
   }
 
