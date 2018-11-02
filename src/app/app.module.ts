@@ -10,11 +10,14 @@ import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import {UserResolverService} from './_services/resolvers/users.resolver';
 import {HttpBackendInter } from './http-backend-interceptor';
+import { AddUserComponent } from './add-user/add-user.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import {HttpBackendInter } from './http-backend-interceptor';
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [
     HttpBackendInter,

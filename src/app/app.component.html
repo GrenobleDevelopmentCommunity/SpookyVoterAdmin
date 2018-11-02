@@ -6,13 +6,12 @@
     <h1 class="example-app-name">Responsive App</h1>
   </mat-toolbar>
 
-  <mat-sidenav-container class="fullPage"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+  <mat-sidenav-container class="fullPage">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" >
       <mat-nav-list>
         <a mat-list-item routerLink="/users" >Contestants</a>
-        <a mat-list-item routerLink="." >Add Contestants</a>
+        <a mat-list-item routerLink="/add" >Add Contestants</a>
         <a mat-list-item routerLink="." >Voters</a>
         <a mat-list-item routerLink="." >Results</a>
       </mat-nav-list>

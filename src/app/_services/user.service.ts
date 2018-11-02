@@ -13,4 +13,8 @@ export class UserService {
     return this.http.get<any>('/v1/users');
   }
 
+  createUser(): Observable<any> {
+    return this.http.post('/v1/users', {});
+  }
+
 }

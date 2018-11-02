@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {UsersComponent} from './users/users.component';
 import {UserResolverService} from './_services/resolvers/users.resolver';
+import {AddUserComponent} from './add-user/add-user.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,10 @@ const routes: Routes = [
     resolve: {
       users: UserResolverService
     }
+  },
+  {
+    path: 'add',
+    component: AddUserComponent
   }
 ];
 
