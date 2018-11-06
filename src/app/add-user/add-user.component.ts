@@ -61,7 +61,7 @@ export class AddUserComponent{
   }
 
   validateFile(file) {
-    return this.acceptedMimeTypes.includes(file.type) && file.size < 500000;
+    return this.acceptedMimeTypes.includes(file.type);
   }
 
 }
