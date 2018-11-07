@@ -20,12 +20,15 @@ export class ResultsComponent implements OnInit {
     this.userService.getUsersByCategory('eve').subscribe(
       (data) => {
         console.log(data);
-        this.eves = data.body;
+        this.eves = data.body.sort(function (a, b) { return b.votes - a.votes; });
       }
     );
     this.userService.getUsersByCategory('adam').subscribe(
-      (data) => this.adams = data.body
+      (data) => {
+        this.adams = data.body.sort(function (a, b) { return b.votes - a.votes; });
+      }
     );
   }
+
 
 }
