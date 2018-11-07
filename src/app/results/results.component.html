@@ -1,0 +1,28 @@
+<mat-tab-group>
+  <mat-tab label="Adam">
+    <div *ngFor="let adam of adams">
+      <mat-card class="user-card">
+        <mat-card-header>
+          <mat-card-title><b>Nickname:</b> {{adam.nickname}}</mat-card-title>
+          <mat-card-subtitle><b>Category:</b> {{adam.category}} - <b>Votes:</b> {{adam.votes}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img *ngIf="!adam.photo_link" mat-card-image src="http://s3.crackedcdn.com/blogimages/2009/03/cage5.jpg" alt="Photo of a Shiba Inu">
+        <img *ngIf="adam.photo_link" mat-card-image [src]="adam.photo_link" alt="Photo of a Shiba Inu">
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Eve">
+    <div *ngFor="let eve of eves">
+      <mat-card class="user-card">
+        <mat-card-header>
+          <mat-card-title><b>Nickname:</b> {{eve.nickname}}</mat-card-title>
+          <mat-card-subtitle><b>Category:</b> {{eve.category}} - <b>Votes:</b> {{eve.votes}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <img *ngIf="!eve.photo_link" mat-card-image src="http://s3.crackedcdn.com/blogimages/2009/03/cage5.jpg" alt="Photo of a Shiba Inu">
+        <img *ngIf="eve.photo_link" mat-card-image [src]="eve.photo_link" alt="Photo of a Shiba Inu">
+      </mat-card>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -1,8 +1,9 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {UsersComponent} from './users/users.component';
-import {UserResolverService} from './_services/resolvers/users.resolver';
-import {AddUserComponent} from './add-user/add-user.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { UsersComponent } from './users/users.component';
+import { UserResolverService } from './_services/resolvers/users.resolver';
+import { AddUserComponent } from './add-user/add-user.component';
+import { ResultsComponent } from './results/results.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,13 @@ const routes: Routes = [
   {
     path: 'add',
     component: AddUserComponent
+  },
+  {
+    path: 'results',
+    component: ResultsComponent,
+    // resolve: {
+    //   users: UserResolverService
+    // }
   }
 ];
 

@@ -12,12 +12,14 @@ import {UserResolverService} from './_services/resolvers/users.resolver';
 import {HttpBackendInter } from './http-backend-interceptor';
 import { AddUserComponent } from './add-user/add-user.component';
 import {FormsModule} from '@angular/forms';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    AddUserComponent
+    AddUserComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

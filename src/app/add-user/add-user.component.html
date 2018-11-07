@@ -11,7 +11,7 @@
       <mat-form-field appearance="outline" class="form-field">
         <mat-select placeholder="Pipi out/in side" [(ngModel)]="user.category">
           <mat-option value="adam">Adam</mat-option>
-          <mat-option value="Eve">Eve</mat-option>
+          <mat-option value="eve">Eve</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -26,9 +26,7 @@
       </mat-card>
     </div>
     <div style="padding-top: 16px;">
-      <button mat-stroked-button class="form-field"
-              [disabled]="fileDataUri.length === 0"
-              (click)="uploadFile()">Create
+      <button mat-stroked-button class="form-field" [disabled]="fileDataUri.length === 0" (click)="uploadFile()">Create
       </button>
     </div>
   </div>

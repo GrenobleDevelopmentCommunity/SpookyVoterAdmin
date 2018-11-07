@@ -1,17 +1,18 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {User} from '../_model/user';
-import {UserService} from '../_services/user.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { User, Category } from '../_model/user';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.css']
 })
-export class AddUserComponent{
+export class AddUserComponent {
 
   user: User = {
     nickname: '',
-    category: ''
+    category: '',
+    votes: 0
   };
 
   acceptedMimeTypes = [
@@ -42,7 +43,7 @@ export class AddUserComponent{
         this.fileDataUri = reader.result as string;
       };
     } else {
-      this.errorMsg = 'File must be jpg, png, or gif and cannot be exceed 500 KB in size'
+      this.errorMsg = 'File must be jpg, png, or gif and cannot be exceed 500 KB in size';
     }
   }
 
@@ -51,7 +52,7 @@ export class AddUserComponent{
       const base64File = this.fileDataUri.split(',')[1];
       this.userService.uploadPhoto(this.user.nickname, base64File).subscribe((res) => {
         console.log('UploadPhotoRes', res);
-        this.userService.createUser(this.user).subscribe( (usRes) => {
+        this.userService.createUser(this.user).subscribe((usRes) => {
           console.log('CreateUserRes', usRes);
           this.userCreated = true;
         });
